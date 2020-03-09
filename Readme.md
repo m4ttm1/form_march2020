@@ -9,3 +9,5 @@ Récp des commandes
 * git init
 * git clone
 
+* git status
+* git log
