@@ -9,12 +9,16 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "live-server": "^1.2.1",
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2",
     "prettier": "^1.19.1"
   },
   "scripts": {
     "serve": "live-server src --mount=/node_modules:node_modules",
     "prettier": "prettier **/*.{js,html,scss,css,md,ts,json} --write",
-    "lint:html": "htmlhint"
+    "lint:html": "htmlhint",
+    "build:scss": "node-sass --recursive --output src/css src/scss",
+    "watch:scss": "nodemon --ext scss --exec npm run build:scss"
   },
   "prettier": {
     "printWidth": 120,
