@@ -17,7 +17,7 @@
     "serve": "live-server src --mount=/node_modules:node_modules",
     "prettier": "prettier **/*.{js,html,scss,css,md,ts,json} --write",
     "lint:html": "htmlhint",
-    "build:scss": "node-sass --recursive --output src/css src/scss",
+    "build:scss": "node-sass --recursive --output src/css  src/scss",
     "watch:scss": "nodemon --ext scss --exec npm run build:scss"
   },
   "prettier": {
