@@ -3,5 +3,32 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "htmlhint": "^0.11.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "live-server": "^1.2.1",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "serve": "live-server src --mount=/node_modules:node_modules",
+    "prettier": "prettier **/*.{js,html,scss,css,md,ts,json} --write",
+    "lint:html": "htmlhint"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.html": "htmlhint",
+    "*.{js,html,scss,css,md,ts,json}": "prettier --write"
   }
 }

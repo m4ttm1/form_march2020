@@ -6,9 +6,9 @@ Git permet de versionner son code
 
 Récp des commandes
 
-* git init
-* git clone
+- git init
+- git clone
 
-* git status
-* git merge
-* git pull
+- git status
+- git merge
+- git pull
