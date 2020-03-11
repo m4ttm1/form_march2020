@@ -1,16 +1,20 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+const { BannerPlugin } = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const METADATA = 'Copyright Orsys 2020 new generation modern sites';
 
 /** @type {import ('webpack').Configuration} */
 const config = {
-  devtool: 'source-map',
+  devtool: 'false',
   entry: './src/js/main.js',
   plugins: [
     new HtmlWebPackPlugin({ template: './src/index.html' }),
-    new webpack.BannerPlugin({
+    new BannerPlugin({
       banner: METADATA,
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'app.[hash].css',
     }),
   ],
 
@@ -20,7 +24,9 @@ const config = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS

@@ -2,10 +2,12 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "banner-plugin": "^1.0.10",
+    "chai": "^4.2.0",
     "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "htmlhint": "^0.11.0",
@@ -14,6 +16,7 @@
     "lint-staged": "^10.0.8",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.9.0",
+    "mocha": "^7.1.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
@@ -31,8 +34,9 @@
     "lint:html": "htmlhint",
     "build:scss": "node-sass --source-map true --recursive --output src/css  src/scss",
     "watch:scss": "nodemon --ext scss --exec npm run build:scss",
-    "build:dev": "webpack --mode development",
-    "build:prod": "npm run lint:html && webpack --mode production"
+    "build:dev": "rimraf dist && webpack --mode development",
+    "build:prod": "npm run lint:html && rimraf dist && webpack --mode production",
+    "test": "mocha --recursive"
   },
   "prettier": {
     "printWidth": 120,
