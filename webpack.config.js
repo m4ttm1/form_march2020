@@ -21,16 +21,23 @@ function configFactory(_, { mode }) {
   /** @type {import('webpack').Configuration} */
   const config = {
     devtool: mode !== 'production' ? 'source-map' : false,
-    entry: './src/js/main.js',
+    entry: './src/ts/main.ts',
     output: {
       filename: mode !== 'production' ? 'app.js' : 'app.[hash].min.js',
     },
     plugins,
+    resolve: {
+      extensions: ['.js', '.json', '.ts'],
+    },
     module: {
       rules: [
         {
           test: /\.json5$/,
           use: 'json5-loader',
+        },
+        {
+          test: /\.ts$/,
+          use: 'ts-loader',
         },
         {
           test: /\.s[ac]ss$/i,
