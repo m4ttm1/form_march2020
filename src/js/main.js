@@ -1,3 +1,7 @@
+import '../scss/app.scss';
+import 'bootstrap';
+
+/** @type {HTMLInputElement} */
 import { hello } from './hello.js';
 
 /** @type {HTMLInputElement} */
